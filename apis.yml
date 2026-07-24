@@ -185,6 +185,34 @@ apis:
   - type: APIReference
     url: https://cardsapidocs.thredd.com/v2.0/reference/accounts
 common:
+- type: DomainSecurity
+  url: security/thredd-domain-security.yml
+- type: Authentication
+  url: authentication/thredd-authentication.yml
+- type: OAuthScopes
+  url: scopes/thredd-scopes.yml
+- type: Conventions
+  url: conventions/thredd-conventions.yml
+- type: Idempotency
+  url: conventions/thredd-conventions.yml
+- type: ErrorCatalog
+  url: errors/thredd-problem-types.yml
+- type: ChangeLog
+  url: changelog/thredd-changelog.yml
+- type: Sandbox
+  url: sandbox/thredd-sandbox.yml
+- type: Conformance
+  url: conformance/thredd-conformance.yml
+- type: Lifecycle
+  url: lifecycle/thredd-lifecycle.yml
+- type: StatusPage
+  url: https://thredd.statuspage.io/
+- type: Webhooks
+  url: asyncapi/thredd-webhooks.yml
+- type: MCPServer
+  url: mcp/thredd-mcp.yml
+- type: LLMsTxt
+  url: llms/thredd-llms.txt
 - type: Website
   url: https://www.thredd.com/
 - type: DeveloperPortal

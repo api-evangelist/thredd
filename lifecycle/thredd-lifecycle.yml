@@ -1,0 +1,22 @@
+generated: '2026-07-24'
+method: searched
+source: https://cardsapidocs.thredd.com/v2.0/
+versioning:
+  scheme: uri-path
+  current: v1
+  api_path: /api/v1
+  docs_version: v2.0
+  docs: https://cardsapidocs.thredd.com/v2.0/
+deprecation:
+  policy_url: null
+  sunset_header: unknown
+  note: >-
+    Legacy variants of some endpoints are marked in the reference (e.g. "Update
+    Payment Token Status - Legacy"); no formal published deprecation-policy page
+    was located.
+status_page: https://thredd.statuspage.io/
+changelog: https://cardsapidocs.thredd.com/v2.0/changelog
+sla:
+  url: null
+deprecated_operations:
+  - Update Payment Token Status - Legacy

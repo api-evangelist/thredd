@@ -1,0 +1,44 @@
+generated: '2026-07-24'
+method: searched
+source: https://cardsapidocs.thredd.com/changelog
+docs: https://cardsapidocs.thredd.com/v2.0/changelog
+scheme: dated-release-notes
+subject: Thredd Cards API (API Hub) documentation portal release notes
+entries:
+  - title: Release Notes for the 10th July
+    date: '2026-07-10'
+    url: https://cardsapidocs.thredd.com/changelog/release-notes-for-the-10th-july
+    breaking: false
+    highlights:
+      - Added descriptions for the error codes returned by the Apata Finalised Event webhook (Event Code 111).
+  - title: Release Notes for the 3rd July
+    date: '2026-07-03'
+    url: https://cardsapidocs.thredd.com/changelog/release-notes-for-the-3rd-july
+    breaking: false
+  - title: Release Notes for the 5th June
+    date: '2026-06-05'
+    url: https://cardsapidocs.thredd.com/changelog/release-notes-for-the-5th-june
+    breaking: false
+  - title: PRN-296
+    url: https://cardsapidocs.thredd.com/changelog/prn-296
+    breaking: false
+  - title: Release Notes for the 17th April
+    date: '2026-04-17'
+    url: https://cardsapidocs.thredd.com/changelog/release-notes-for-the-17th-april-1
+    breaking: false
+  - title: Release Notes for the 2nd April
+    date: '2026-04-02'
+    url: https://cardsapidocs.thredd.com/changelog/release-notes-for-the-2nd-april
+    breaking: false
+  - title: Release Notes for the 20th February
+    date: '2026-02-20'
+    url: https://cardsapidocs.thredd.com/changelog/release-notes-for-the-20th-february
+    breaking: false
+  - title: Release Notes for the 6th February
+    date: '2026-02-06'
+    url: https://cardsapidocs.thredd.com/changelog/release-notes-for-the-6th-february
+    breaking: false
+  - title: Release Notes for the 23rd January 2026
+    date: '2026-01-23'
+    url: https://cardsapidocs.thredd.com/changelog/release-notes-for-the-23rd-january-2026
+    breaking: false

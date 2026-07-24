@@ -1,0 +1,34 @@
+generated: '2026-07-24'
+method: searched
+source: https://cardsapidocs.thredd.com/reference/errors
+docs: https://cardsapidocs.thredd.com/v2.0/reference/errors
+format: rfc9457
+envelope:
+  media_hint: problem+json shape
+  fields:
+    type: URI to Thredd documentation relevant to the error
+    title: short human-readable summary of the error
+    status: HTTP status code of the error
+    traceId: trace ID for debugging with Thredd support teams
+    errors: object containing an array of specific error instances
+problems:
+  - status: 400
+    title: Bad Request
+    description: >-
+      The server cannot or will not process the request due to something
+      perceived to be a client error (e.g. malformed request, validation error,
+      or an IdempotencyKey reused on a different endpoint).
+  - status: 401
+    title: Unauthorised
+    description: >-
+      The request has not been applied because it lacks valid authentication
+      credentials for the target resource.
+  - status: 403
+    title: Forbidden
+    description: The server understood the request but refuses to authorise it.
+  - status: 404
+    title: Not Found
+    description: The requested resource could not be found.
+  - status: 500
+    title: Internal Server Error
+    description: The server encountered an unexpected condition preventing it from fulfilling the request.

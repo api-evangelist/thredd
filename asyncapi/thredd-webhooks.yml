@@ -1,0 +1,40 @@
+generated: '2026-07-24'
+method: searched
+source: https://cardsapidocs.thredd.com/docs/external-host-interface-ehi
+spec_type: Webhooks
+docs:
+  ehi: https://cardsapidocs.thredd.com/v2.0/docs/external-host-interface-ehi
+  create_webhook: https://cardsapidocs.thredd.com/v2.0/reference/create-webhook
+  event_subscriptions: https://cardsapidocs.thredd.com/v2.0/reference/add-event-subscriptions
+event_surfaces:
+  - name: External Host Interface (EHI)
+    style: real-time push data feed to a Program-Manager-hosted external URL
+    description: >-
+      Global real-time card and payment notifications from the schemes (Visa,
+      Mastercard) merged into a single Thredd message format and delivered over a
+      secure connection to the external host endpoint. Also carries payment
+      authorisation control (approve/decline in-flight).
+    delivery: push to configured external host URL
+    acknowledgement: consumer must acknowledge receipt of each message
+    notification_types:
+      - Authorisations
+      - Presentments
+      - Load and Balance Transfers
+      - Expired Cards
+  - name: Webhooks & Event Subscriptions API
+    style: managed webhooks / event subscriptions over the API Hub
+    description: >-
+      Create and manage webhooks and event subscriptions to receive asynchronous
+      notifications of card, transaction, and account events.
+    operations:
+      - Create Webhook
+      - Add Event Subscriptions
+    events:
+      - code: 111
+        name: Apata Finalised Event
+        docs: https://cardsapidocs.thredd.com/v2.0/docs/event-code-111-apata-finalised-event
+security:
+  transport: secure connection (TLS) to configured endpoint
+note: >-
+  Thredd documents webhooks and a real-time event feed but does not publish an
+  AsyncAPI document; this artifact captures the webhook/event catalog.

@@ -1,0 +1,40 @@
+generated: '2026-07-24'
+method: searched
+source: https://cardsapidocs.thredd.com/docs/get-an-authentication-token
+note: >-
+  Cross-cutting standards asserted from the documented authentication model,
+  error format, and 3-D Secure / SCA product surface. Card-scheme certifications
+  (PCI DSS) are asserted by Thredd corporately but the public certification page
+  is bot-gated and not machine-verifiable, so it is recorded conforms:unknown
+  rather than a published Compliance pointer.
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: OAuth2 client-credentials token endpoint documented (oauthuat.globalprocessing.net/connect/token)
+  - id: oauth2-client-credentials
+    conforms: true
+    evidence: grant_type=client_credentials documented in the auth guide
+  - id: fapi
+    conforms: true
+    evidence: FAPI-grade OAuth2 with private_key_jwt client assertions over mutual TLS (Cloudentity + Raidiam Connect CA)
+  - id: private-key-jwt
+    conforms: true
+    evidence: private_key_jwt client authentication documented for high-assurance access
+  - id: mutual-tls
+    conforms: true
+    evidence: mTLS transport documented for Cards API access
+  - id: psd2-sca
+    conforms: true
+    evidence: 3-D Secure / Strong Customer Authentication (SCA) product and API surface
+  - id: rfc9457-problem-details
+    conforms: true
+    evidence: error responses use a type/title/status/traceId problem+json envelope
+  - id: idempotency
+    conforms: true
+    evidence: IdempotencyKey header on write endpoints with 1-hour replay retention
+  - id: pci-dss
+    conforms: unknown
+    evidence: card issuer-processor operating on Mastercard/Visa/Discover; public certification page not machine-verifiable
+  - id: emv-3ds
+    conforms: true
+    evidence: EMV 3-D Secure supported for issued cards

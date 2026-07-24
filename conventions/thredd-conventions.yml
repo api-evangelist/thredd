@@ -1,0 +1,45 @@
+generated: '2026-07-24'
+method: searched
+source: https://cardsapidocs.thredd.com/docs/what-is-idempotency
+docs:
+  idempotency: https://cardsapidocs.thredd.com/v2.0/docs/what-is-idempotency
+  errors: https://cardsapidocs.thredd.com/v2.0/reference/errors
+  auth: https://cardsapidocs.thredd.com/v2.0/docs/get-an-authentication-token
+authentication:
+  style: oauth2-client-credentials + Bearer JWT (mutual TLS / private_key_jwt for high assurance)
+  header: Authorization
+  see: authentication/thredd-authentication.yml
+base_url: https://api.thredd.com/api/v1
+uat_base_url: https://cardsapi-uat-pub.globalprocessing.net/api/v1
+idempotency:
+  supported: true
+  header: IdempotencyKey
+  value_format: GUID/UUID
+  scope: >-
+    Non-idempotent write endpoints (e.g. PATCH/PUT such as Update Card Status,
+    Convert Card, Update Card STIP Balance, Complete Card Replacement, Unblock
+    CVV, Update 3DS Credentials, Update Card Control Groups) expose a dedicated
+    "- Idempotent" variant that requires the IdempotencyKey header.
+  retention: 1 hour (key valid for an hour after first use; replay returns the cached response)
+  reuse_across_endpoints: >-
+    Reusing the same key on a different endpoint returns a 400 with message
+    "The Idempotency header key value '<guid>' was used in a different request."
+error_envelope:
+  format: rfc9457-like (problem+json shape)
+  fields: [type, title, status, traceId, errors]
+  trace_field: traceId
+  see: errors/thredd-problem-types.yml
+tracing:
+  request_id_field: traceId
+  usage: returned in the error object for debugging with Thredd support
+versioning:
+  scheme: uri-path
+  current: v1
+  docs_version: v2.0
+  see: lifecycle/thredd-lifecycle.yml
+events:
+  model: External Host Interface (EHI) real-time push feed + Webhooks & Event Subscriptions API
+  see: asyncapi/thredd-webhooks.yml
+content_type:
+  request: application/*+json
+  response: application/json

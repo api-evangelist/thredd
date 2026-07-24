@@ -1,0 +1,71 @@
+generated: '2026-07-24'
+method: derived
+status: candidate
+source: llms/thredd-llms.txt
+note: >-
+  No official Thredd MCP server was found. This is a CANDIDATE tool list derived
+  from the documented Cards API reference operations (ReadMe reference slugs; the
+  underlying OpenAPI is not anonymously downloadable, so input schemas require the
+  gated hub spec). Each tool maps to a documented reference endpoint.
+server:
+  name: thredd-cards
+  transport: http
+  url: null
+tools:
+  - name: create_card
+    description: Create a physical or virtual card.
+    source_operation: https://cardsapidocs.thredd.com/reference/create-card
+  - name: retrieve_card
+    description: Retrieve a card by public token.
+    source_operation: https://cardsapidocs.thredd.com/reference/retrieve-card
+  - name: update_card
+    description: Update card and cardholder details.
+    source_operation: https://cardsapidocs.thredd.com/reference/update-card
+  - name: renew_card
+    description: Renew a card.
+    source_operation: https://cardsapidocs.thredd.com/reference/renew-card
+  - name: replace_card
+    description: Replace a lost or damaged card.
+    source_operation: https://cardsapidocs.thredd.com/reference/replace-card
+  - name: retrieve_card_status
+    description: Retrieve the status of a card.
+    source_operation: https://cardsapidocs.thredd.com/reference/retrieve-card-status
+  - name: update_card_status
+    description: Update the status of a card (idempotent variant available).
+    source_operation: https://cardsapidocs.thredd.com/reference/update-card-status-idempotent
+  - name: list_card_balance
+    description: List the balance of a card.
+    source_operation: https://cardsapidocs.thredd.com/reference/list-card-balance
+  - name: get_card_transactions
+    description: Retrieve transactions for a card.
+    source_operation: https://cardsapidocs.thredd.com/reference/get-card-transactions
+  - name: load_or_unload_card
+    description: Load or unload funds on a card.
+    source_operation: https://cardsapidocs.thredd.com/reference/load-or-unload-card
+  - name: set_pin
+    description: Set the cardholder PIN.
+    source_operation: https://cardsapidocs.thredd.com/reference/set-pin
+  - name: get_pin
+    description: Retrieve the cardholder PIN.
+    source_operation: https://cardsapidocs.thredd.com/reference/get-pin
+  - name: unblock_pin
+    description: Unblock a blocked PIN.
+    source_operation: https://cardsapidocs.thredd.com/reference/unblock-pin
+  - name: get_cvv
+    description: Retrieve the CVV2 for a card.
+    source_operation: https://cardsapidocs.thredd.com/reference/get-cvv
+  - name: create_3ds_credentials
+    description: Create 3-D Secure credentials for strong customer authentication.
+    source_operation: https://cardsapidocs.thredd.com/reference/create-3ds-credentials
+  - name: list_card_control_groups
+    description: List card control groups.
+    source_operation: https://cardsapidocs.thredd.com/reference/list-card-control-groups-1
+  - name: update_card_control_groups
+    description: Update card control groups (idempotent variant available).
+    source_operation: https://cardsapidocs.thredd.com/reference/update-card-control-groups-idempotent
+  - name: create_webhook
+    description: Create a webhook to receive event notifications.
+    source_operation: https://cardsapidocs.thredd.com/reference/create-webhook
+  - name: create_custom_pan
+    description: Create a customisable card number (custom PAN).
+    source_operation: https://cardsapidocs.thredd.com/reference/create-custom-pan-1
