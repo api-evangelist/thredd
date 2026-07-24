@@ -1,0 +1,208 @@
+aid: thredd
+url: https://raw.githubusercontent.com/api-evangelist/thredd/refs/heads/main/apis.yml
+name: Thredd
+kind: company
+description: >-
+  Thredd (formerly Global Processing Services / GPS) is a London-headquartered
+  issuer-processor and next-generation payments technology company, founded in
+  2007, rebranded to Thredd in 2023, and backed by Advent International. It
+  provides card issuing and issuer processing for fintechs, neobanks,
+  banking-as-a-service platforms, and program managers across Mastercard, Visa,
+  and Discover, spanning 40+ countries, with real-time transaction
+  authorization (External Host Interface / EHI), digital-wallet tokenization
+  (Apple Pay, Google Pay), 3-D Secure / strong customer authentication, card
+  controls, and fraud / scam detection. Its home market is the United Kingdom.
+  Thredd ships a genuine public developer surface: a self-serve Developer Portal
+  (devportal.thredd.com) that grants a sandbox client id and secret, an API Hub
+  REST API at api.thredd.com, and a ReadMe-hosted API reference
+  (cardsapidocs.thredd.com) documenting roughly 129 endpoints across more than a
+  dozen product OpenAPI definitions (core cards, transactions, credit, custom
+  PAN, card limits, card controls, digital wallets, 3DS, ACH, open banking,
+  alias directory, and web services). Authentication is FAPI-grade OAuth2
+  client-credentials using private_key_jwt client assertions over mutual TLS,
+  brokered by Cloudentity with Raidiam Connect acting as the certificate
+  authority; webhooks and event subscriptions are supported. The underlying
+  OpenAPI files render only through the hub and are not anonymously
+  downloadable.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Payments
+- United Kingdom
+- Issuer Processor
+- Card Issuing
+- Payment Processing
+- Banking-as-a-Service
+- Digital Wallets
+- Cross-Border
+- Fraud
+- Open Banking
+- FAPI
+created: '2026-07-24'
+modified: '2026-07-24'
+specificationVersion: '0.19'
+apis:
+- aid: thredd:thredd-cards-api
+  name: Thredd Cards API
+  description: >-
+    Create, retrieve, update, renew, replace, and convert physical and virtual
+    cards; manage card status, cardholder details, card images, encrypted card
+    data, and bulk card creation. The core issuing surface of the Thredd API Hub.
+  humanURL: https://cardsapidocs.thredd.com/v2.0/reference/create-card
+  baseURL: https://api.thredd.com/api/v1
+  tags:
+  - Cards
+  - Card Issuing
+  properties:
+  - type: Documentation
+    url: https://cardsapidocs.thredd.com/v2.0/docs/create-card-2
+  - type: APIReference
+    url: https://cardsapidocs.thredd.com/v2.0/reference/create-card
+- aid: thredd:thredd-transactions-api
+  name: Thredd Card Transactions API
+  description: >-
+    Retrieve card transactions and transaction history, including load / unload
+    operations and balances, for cards managed on the Thredd platform.
+  humanURL: https://cardsapidocs.thredd.com/v2.0/reference/get-card-transactions
+  baseURL: https://api.thredd.com/api/v1
+  tags:
+  - Transactions
+  - Payments
+  properties:
+  - type: Documentation
+    url: https://cardsapidocs.thredd.com/v2.0/docs/retrieving-card-transactions
+  - type: APIReference
+    url: https://cardsapidocs.thredd.com/v2.0/reference/get-card-transactions
+- aid: thredd:thredd-card-controls-limits-api
+  name: Thredd Card Controls & Limits API
+  description: >-
+    List and update card control groups, manage merchant allow / disallow lists
+    and card acceptors, and configure card spend limits at the product level.
+  humanURL: https://cardsapidocs.thredd.com/v2.0/reference/list-card-control-groups-1
+  baseURL: https://api.thredd.com/api/v1
+  tags:
+  - Card Controls
+  - Limits
+  properties:
+  - type: Documentation
+    url: https://cardsapidocs.thredd.com/v2.0/docs/card-controls
+  - type: APIReference
+    url: https://cardsapidocs.thredd.com/v2.0/reference/list-card-control-groups-1
+- aid: thredd:thredd-3ds-api
+  name: Thredd 3-D Secure (SCA) API
+  description: >-
+    Create, list, update, and delete 3-D Secure credentials and configuration
+    for strong customer authentication (SCA) on issued cards.
+  humanURL: https://cardsapidocs.thredd.com/v2.0/reference/create-3ds-credentials
+  baseURL: https://api.thredd.com/api/v1
+  tags:
+  - 3DS
+  - Strong Customer Authentication
+  properties:
+  - type: APIReference
+    url: https://cardsapidocs.thredd.com/v2.0/reference/create-3ds-credentials
+- aid: thredd:thredd-pin-cvv-api
+  name: Thredd PIN & CVV Management API
+  description: >-
+    Set, retrieve, and unblock cardholder PINs, and retrieve and unblock CVV2
+    values and their status, over the Thredd API Hub.
+  humanURL: https://cardsapidocs.thredd.com/v2.0/reference/set-pin
+  baseURL: https://api.thredd.com/api/v1
+  tags:
+  - PIN
+  - CVV
+  properties:
+  - type: Documentation
+    url: https://cardsapidocs.thredd.com/v2.0/docs/card-personal-identification-number-pin
+  - type: APIReference
+    url: https://cardsapidocs.thredd.com/v2.0/reference/set-pin
+- aid: thredd:thredd-digital-wallets-api
+  name: Thredd Digital Wallets API
+  description: >-
+    Enroll and provision cards into Apple Pay and Google Pay, generate wallet
+    web-provisioning tokens, and manage payment-instrument tokenization for
+    digital wallets.
+  humanURL: https://cardsapidocs.thredd.com/v2.0/reference/apple-wallet-1
+  baseURL: https://api.thredd.com/api/v1
+  tags:
+  - Digital Wallets
+  - Tokenization
+  properties:
+  - type: APIReference
+    url: https://cardsapidocs.thredd.com/v2.0/reference/apple-wallet-1
+- aid: thredd:thredd-webhooks-api
+  name: Thredd Webhooks & Event Subscriptions API
+  description: >-
+    Create and manage webhooks and event subscriptions to receive asynchronous
+    notifications of card, transaction, and account events from the Thredd
+    platform.
+  humanURL: https://cardsapidocs.thredd.com/v2.0/reference/create-webhook
+  baseURL: https://api.thredd.com/api/v1
+  tags:
+  - Webhooks
+  - Events
+  properties:
+  - type: APIReference
+    url: https://cardsapidocs.thredd.com/v2.0/reference/create-webhook
+  - type: APIReference
+    url: https://cardsapidocs.thredd.com/v2.0/reference/add-event-subscriptions
+- aid: thredd:thredd-credit-api
+  name: Thredd Credit API
+  description: >-
+    Credit account and credit-program endpoints for managing credit overviews
+    and related credit issuing capabilities on the Thredd platform.
+  humanURL: https://cardsapidocs.thredd.com/v2.0/reference/credit-overview
+  baseURL: https://api.thredd.com/api/v1
+  tags:
+  - Credit
+  - Lending
+  properties:
+  - type: APIReference
+    url: https://cardsapidocs.thredd.com/v2.0/reference/credit-overview
+- aid: thredd:thredd-custom-pan-api
+  name: Thredd Custom PAN API
+  description: >-
+    Create customisable card numbers (custom PAN) so programs can define
+    specific primary account number patterns for their issued cards.
+  humanURL: https://cardsapidocs.thredd.com/v2.0/reference/create-custom-pan-1
+  baseURL: https://api.thredd.com/api/v1
+  tags:
+  - Custom PAN
+  - Card Issuing
+  properties:
+  - type: APIReference
+    url: https://cardsapidocs.thredd.com/v2.0/reference/create-custom-pan-1
+- aid: thredd:thredd-accounts-api
+  name: Thredd Accounts API
+  description: >-
+    Account-level endpoints supporting account records and money-movement flows
+    (including ACH / micro-deposit verification) on the Thredd platform.
+  humanURL: https://cardsapidocs.thredd.com/v2.0/reference/accounts
+  baseURL: https://api.thredd.com/api/v1
+  tags:
+  - Accounts
+  - ACH
+  properties:
+  - type: APIReference
+    url: https://cardsapidocs.thredd.com/v2.0/reference/accounts
+common:
+- type: Website
+  url: https://www.thredd.com/
+- type: DeveloperPortal
+  url: https://devportal.thredd.com/
+- type: Documentation
+  url: https://docs.thredd.com/
+- type: APIReference
+  url: https://cardsapidocs.thredd.com/v2.0/
+- type: GettingStarted
+  url: https://cardsapidocs.thredd.com/v2.0/docs/getting-started-1
+- type: Authentication
+  url: https://cardsapidocs.thredd.com/v2.0/docs/get-an-authentication-token
+- type: SignUp
+  url: https://cardsapidocs.thredd.com/v2.0/docs/gaining-access-to-the-developer-portal
+- type: LinkedIn
+  url: https://www.linkedin.com/company/thredd/
+- type: PrivacyPolicy
+  url: https://www.thredd.com/privacy-policy
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

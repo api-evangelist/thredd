@@ -1,0 +1,139 @@
+aid: thredd
+name: Thredd
+review:
+  question: Does Thredd expose a genuine public developer surface, and are its OpenAPI definitions anonymously downloadable?
+  answer: partial
+  date: '2026-07-24'
+  reviewer: API Evangelist
+  homeMarket: United Kingdom
+  tier: issuer-processor
+findings:
+  summary: |
+    Thredd (formerly Global Processing Services / GPS) publishes a real,
+    self-serve developer surface consistent with an API-native UK
+    issuer-processor. There is a Developer Portal at
+    https://devportal.thredd.com/ (HTTP 200) where a developer signs up to
+    receive a sandbox client id and client secret and can trial the REST API
+    via an API Explorer or a Postman Collection. The API reference is hosted on
+    ReadMe at https://cardsapidocs.thredd.com/v2.0/ (HTTP 200, "Thredd Cards
+    API"), documenting roughly 129 endpoints. The production API Hub base URL
+    is https://api.thredd.com/api/v1 (confirmed verbatim in the provider's own
+    Create Card curl example).
+
+    The reference is backed by more than a dozen distinct product OpenAPI 3.0.1
+    definitions (seen as ReadMe branch API files): core-cards.json,
+    credit-api.json, customisable-card-number.json, webhooks.json, ACHv2.yaml,
+    Thredd.CardLimits_fixed.yaml, DigitalWallets.yml,
+    thredd-web-services-rest-api.json, AliasDirectoryService.yaml,
+    openbanking.yaml, eds-configuration-endpoints.yml, and login.yaml, plus a
+    combined v2-openapi.yaml. However, these raw OpenAPI files are NOT
+    anonymously downloadable: the ReadMe hub server-side-renders each operation
+    schema per reference page and the raw-file routes
+    (e.g. /openapi/core-cards.json, /branches/2.0/apis/core-cards.json) return
+    302 to /404 or 404. The full Postman Collections and the OpenAPI source
+    live behind the Developer Portal sign-up. No spec was harvested verbatim.
+
+    Authentication is FAPI-grade: OAuth2 client-credentials using
+    private_key_jwt client assertions
+    (client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer)
+    over mutual TLS (mTLS), brokered by Cloudentity (authz.cloudentity.io) with
+    Raidiam Connect serving as the certificate authority for transport and
+    signing certificates. Access tokens are Bearer JWTs; scopes observed in a
+    sample token include ws, cards.read, cards.write, pin.read, pin.write,
+    cvv.read, cvv.write, 3ds.read, bulkcard.read, bulkcard.write, apata.read,
+    apata.write, digitalchannel, and scamdetect. Idempotency is documented, and
+    an X-Region header is required.
+
+    Webhooks and event subscriptions are supported (create-webhook,
+    add-event-subscriptions, webhook endpoint error codes). No AsyncAPI, public
+    GraphQL, or gRPC/.proto surface was found. A GitHub account at
+    github.com/thredd exists but belongs to an unrelated individual (Nikki
+    Thredd), not the payments company; status.thredd.com does not resolve. The
+    corporate marketing site (www.thredd.com / www.thredd.ai) returns HTTP 403
+    to automated clients (Cloudflare bot protection) but is live for humans;
+    the company has recently rebranded around an "AI-first issuer processing
+    platform" and added stablecoin messaging.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.thredd.com/api/v1
+      documented: true
+    - protocol: Webhooks
+      scheme: https
+      documented: true
+      note: Outbound event notifications via configurable webhooks and event subscriptions.
+    - protocol: GraphQL
+      documented: false
+    - protocol: gRPC
+      documented: false
+  authModel:
+    scheme: OAuth2 client-credentials (private_key_jwt) over mTLS (FAPI)
+    tokenEndpointExample: https://uat-thredd.mtls.eu.authz.cloudentity.io/uat-thredd/confidential-clients/oauth2/token
+    identityProvider: Cloudentity
+    certificateAuthority: Raidiam Connect
+    tokenType: Bearer JWT
+    scopesObserved:
+      - ws
+      - cards.read
+      - cards.write
+      - pin.read
+      - pin.write
+      - cvv.read
+      - cvv.write
+      - 3ds.read
+      - bulkcard.read
+      - bulkcard.write
+      - apata.read
+      - apata.write
+      - digitalchannel
+      - scamdetect
+  developerPortal:
+    url: https://devportal.thredd.com/
+    httpStatus: 200
+    confirmed: true
+  apiReference:
+    url: https://cardsapidocs.thredd.com/v2.0/
+    httpStatus: 200
+    platform: ReadMe
+    endpointCount: 129
+  openapiDownloadable: false
+  specsHarvested: 0
+  postman:
+    available: true
+    public: false
+    note: Postman Collections (including an mTLS / FAPI collection) are distributed via the Developer Portal sign-up, not as a public workspace URL.
+probes:
+  - url: https://devportal.thredd.com/
+    status: 200
+    note: Developer Portal landing (sandbox client id/secret signup).
+  - url: https://cardsapidocs.thredd.com/v2.0/
+    status: 200
+    note: ReadMe-hosted Thredd Cards API reference.
+  - url: https://cardsapidocs.thredd.com/v2.0/docs/get-an-authentication-token
+    status: 200
+    note: OAuth2 token generation guide; confirms Bearer JWT + api.thredd.com base URL.
+  - url: https://cardsapidocs.thredd.com/v2.0/docs/authenticating-cards-api-with-mtls
+    status: 200
+    note: mTLS access via Raidiam Connect CA (transport + signing certificates).
+  - url: https://cardsapidocs.thredd.com/openapi/core-cards.json
+    status: 302
+    note: Redirects to /404 - raw OpenAPI files are not anonymously downloadable.
+  - url: https://docs.thredd.com/
+    status: 200
+    note: Knowledge-base documentation portal (301 to docs.thredd.ai).
+  - url: https://www.thredd.com/
+    status: 403
+    note: Marketing site blocks automated clients (Cloudflare); live for humans.
+  - url: https://www.linkedin.com/company/thredd/
+    status: 200
+    note: Company LinkedIn page.
+sources:
+  - url: https://cardsapidocs.thredd.com/v2.0/llms.txt
+    type: Documentation
+    note: Full page index of the Thredd Cards API docs (guides + 129 API reference endpoints).
+  - url: https://cardsapidocs.thredd.com/v2.0/docs/rest-endpoint-index.md
+    type: APIReference
+    note: Canonical endpoint index across Cards, Groups, and other categories.
+  - url: https://docs.thredd.ai/More_Information/Developer_Portal.htm
+    type: Documentation
+    note: Describes the Developer Portal, sandbox, API Explorer, and Postman Collection.
