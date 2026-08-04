@@ -1,5 +1,47 @@
 # Thredd (thredd)
 
+<!-- API-EVANGELIST-PROVENANCE:BEGIN -->
+> ### About this repository
+>
+> **This is not our API.** This repository is an independent, third-party profile of a company's
+> **publicly available** API surface, maintained by [API Evangelist](https://apievangelist.com).
+> API Evangelist does not operate, host, resell, or support this company's APIs, and is not
+> affiliated with or endorsed by the company unless stated on the profile.
+>
+> **Where the information came from.** Everything here is assembled from material a member of the
+> public can reach with a browser and no credentials — the company's own website, developer portal
+> and documentation, the specifications it publishes for public use (OpenAPI, AsyncAPI, JSON Schema,
+> `apis.json`, `llms.txt` and similar), its public repositories, and its public status, pricing and
+> changelog pages. **Nothing here is obtained by breaching a system, defeating an access control, or
+> using credentials of any kind.**
+>
+> **The rating is an independent assessment.** The Kin Score and Agent Readiness rating are
+> independently calculated scores of a company's *public* API artifacts, produced by API Evangelist
+> against a published rubric. They are not certifications, endorsements, security assessments, or
+> audits, and they score published artifacts — not the quality, safety, or security of the software.
+>
+> **Corrections, re-scores, and removal are free.** No partnership, contract, or purchase is
+> required, and you do not need to justify the request.
+>
+> - **Something wrong?** Open an issue on this repository, or email
+>   [info@apievangelist.com](mailto:info@apievangelist.com).
+> - **Published something new?** Ask for a re-score and we will re-run the rating.
+> - **Want the listing taken down?** Say so and we will honor it. The profile is reduced to your
+>   company name, a factual description, and a link to your own site, and the company is recorded as
+>   **unrated** — never scored zero for having asked.
+>
+> **Response times.** Acknowledgement within **one business day**; removal or restriction within
+> **two business days**; corrections and re-scores within **five business days**.
+>
+> **On a security or compliance team?** Email
+> [info@apievangelist.com](mailto:info@apievangelist.com) with *security* in the subject line and
+> you will get a person, not a form. We will tell you exactly which public URLs this profile was
+> built from so your team can see the same surface we did, and we will take the listing down on
+> request while you work through it.
+>
+> Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
+<!-- API-EVANGELIST-PROVENANCE:END -->
+
 Thredd (formerly Global Processing Services / GPS) is a London-headquartered issuer-processor and next-generation payments technology company, founded in 2007, rebranded to Thredd in 2023, and backed by Advent International. It provides card issuing and issuer processing for fintechs, neobanks, banking-as-a-service platforms, and program managers across Mastercard, Visa, and Discover, spanning 40+ countries, with real-time transaction authorization (External Host Interface / EHI), digital-wallet tokenization, 3-D Secure / strong customer authentication, card controls, and fraud / scam detection. Its home market is the United Kingdom.
 
 Thredd ships a genuine public developer surface: a self-serve Developer Portal that grants a sandbox client id and secret, an API Hub REST API at `https://api.thredd.com/api/v1`, and a ReadMe-hosted API reference documenting roughly 129 endpoints across more than a dozen product OpenAPI definitions. Authentication is FAPI-grade OAuth2 client-credentials using `private_key_jwt` client assertions over mutual TLS (mTLS), brokered by Cloudentity with Raidiam Connect acting as the certificate authority. Webhooks and event subscriptions are supported. The underlying OpenAPI files render only through the hub and are not anonymously downloadable.
