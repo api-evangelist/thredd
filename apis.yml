@@ -39,7 +39,7 @@ tags:
 - FAPI
 created: '2026-07-24'
 modified: '2026-07-24'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: thredd:thredd-cards-api
   name: Thredd Cards API
