@@ -31,6 +31,18 @@ tags:
 - Issuer Processor
 - Card Issuing
 - Payment Processing
+- Banking as a Service
+- Digital Wallet
+- Cross-Border
+- Fraud
+- Open Banking
+- FAPI
+tags_raw:
+- Payments
+- United Kingdom
+- Issuer Processor
+- Card Issuing
+- Payment Processing
 - Banking-as-a-Service
 - Digital Wallets
 - Cross-Border
@@ -65,6 +77,9 @@ apis:
   humanURL: https://cardsapidocs.thredd.com/v2.0/reference/get-card-transactions
   baseURL: https://api.thredd.com/api/v1
   tags:
+  - Transaction
+  - Payments
+  tags_raw:
   - Transactions
   - Payments
   properties:
@@ -124,6 +139,9 @@ apis:
   humanURL: https://cardsapidocs.thredd.com/v2.0/reference/apple-wallet-1
   baseURL: https://api.thredd.com/api/v1
   tags:
+  - Digital Wallet
+  - Tokenization
+  tags_raw:
   - Digital Wallets
   - Tokenization
   properties:
@@ -138,6 +156,9 @@ apis:
   humanURL: https://cardsapidocs.thredd.com/v2.0/reference/create-webhook
   baseURL: https://api.thredd.com/api/v1
   tags:
+  - Webhook
+  - Event
+  tags_raw:
   - Webhooks
   - Events
   properties:
@@ -179,6 +200,9 @@ apis:
   humanURL: https://cardsapidocs.thredd.com/v2.0/reference/accounts
   baseURL: https://api.thredd.com/api/v1
   tags:
+  - Account
+  - ACH
+  tags_raw:
   - Accounts
   - ACH
   properties:
