@@ -136,6 +136,9 @@ apis:
   humanURL: https://cardsapidocs.thredd.com/v2.0/reference/create-3ds-credentials
   baseURL: https://api.thredd.com/api/v1
   tags:
+  - 3D
+  - Strong Customer Authentication
+  tags_raw:
   - 3DS
   - Strong Customer Authentication
   properties:
